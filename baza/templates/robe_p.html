@@ -1,0 +1,15 @@
+{%  extends 'master.html' %}
+
+{% block title %}
+    ROBE
+{% endblock %}
+
+{%  block content %}
+    <div class="list-group">
+        {% for roba in robe_p%}
+            <a class="list-group-item list-group-item-action" href="{% url 'demo_app:roba' roba.id %}">
+                <span class="badge bg-primary text-white" >{{ roba.sifra_robe }}</span>  {{ roba.naziv_robe }} : <span class="badge bg-secondary text-white">{{ roba.kolicina }}</span>
+            </a>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'master.html' %}
+
+{% block content %}
+
+    <div class="card">
+        <div class="card-header">
+            <h1>
+                {{ roba.naziv_robe }}
+                {% if perms.demo_app.change_roba %}
+                    <a href="{% url 'demo_app:edit_roba' roba.id %}">
+                        <span class="badge badge-primary">Edit</span>
+                    </a>
+                    <a href="{% url 'demo_app:delete_roba' roba.id %}">
+                        <span class="badge badge-danger">Delete</span>
+                    </a>
+                {% endif %}
+            </h1>
+        </div>
+        <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <p>{{ roba.sifra_robe }}</p>
+                <footer class="blockquote-footer">
+                    Author:
+                    <cite title="Source Title">
+                        {{ roba.owner.username }}
+                    </cite>
+                </footer>
+            </blockquote>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{%  extends 'master.html' %}
+
+{% block title %}
+    PROIZVODJACI
+{% endblock %}
+
+{%  block content %}
+    <div class="list-group">
+        {% for proizvodjac in proizvodjaci %}
+            <a class="list-group-item list-group-item-action" href="{% url 'demo_app:proizvodjac' proizvodjac.id %}">
+                <div class="form-group ">
+                    {{ proizvodjac.naziv_proizvodjac }}
+
+                </div>
+
+            </a>
+             <a class="btn btn-primary btn-sm  tabindex="-1" role="button"  id="button-addon2" href="{% url 'demo_app:robe_p' proizvodjac.id %}">Roba proizvodjaca {{ proizvodjac.naziv_proizvodjac }}</a>
+        {% endfor %}
+    </div>
+{% endblock %}
